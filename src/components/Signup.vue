@@ -93,7 +93,7 @@ export default {
         email: this.email,
         password: this.password,
       };
-       //console.log(myFormData);
+       console.log(myFormData);
       axios
         .post("/person", myFormData)
         .then((myResponse) => {
