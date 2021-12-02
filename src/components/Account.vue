@@ -10,12 +10,14 @@
 
     <table v-if="commentsByUser" class="table">
       <thead>
+        
         <th>Comment</th>
         <th>Date</th>
         
       </thead>
       <tbody>
         <tr v-for="thisComment in commentsByUser" :key="thisComment.CommentPK">
+          
           <th>
             <router-link :to="`/picture/${thisComment.PicturePK[0]}`">{{
               thisComment.text
