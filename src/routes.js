@@ -8,13 +8,23 @@ import NotFound from "./components/NotFound.vue";
 import CommentCreate from "./components/CommentCreate.vue";
 import Signup from "./components/Signup.vue";
 import Account from "./components/Account.vue";
-
+import myStore from "./store.js";
 
 const router = createRouter({
     history: createWebHistory(),
     routes:[
         {path: "/", component: Home},
-        {path: "/account", component: Account},
+        {
+            path: "/account",
+            component: Account,
+            beforeEnter(to, from, next) {
+              if (myStore.state.token) {
+                next();
+              } else {
+                next("/login");
+              }
+            },
+          },
         {path: "/login", component: Login},
         {path: "/pictures", component: Pictures},
         {path: "/picture/:pk", 

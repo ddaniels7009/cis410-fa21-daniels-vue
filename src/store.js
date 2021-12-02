@@ -27,7 +27,7 @@ export default createStore({
   actions: {
     getPictures({ commit }) {
       axios.get("/pictures").then((aResponse) => {
-        console.log("response in /pictures", aResponse);
+        //console.log("response in /pictures", aResponse);
         commit("storePictures", aResponse.data[0]);
       });
     },

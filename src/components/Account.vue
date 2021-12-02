@@ -40,7 +40,7 @@ export default {
   },
   computed: {
     firstName() {
-      console.log("here is the store so far", this.$store.state);
+      //console.log("here is the store so far", this.$store.state);
       return this.$store.state.user.NameFirst;
     },
   },
@@ -52,7 +52,7 @@ export default {
         },
       })
       .then((theResponse) => {
-        console.log("here is the response", theResponse);
+        //console.log("here is the response", theResponse);
         this.commentsByUser = theResponse.data;
       })
       .catch(() => {
