@@ -26,14 +26,14 @@ export default createStore({
   },
   actions: {
     getPictures({ commit }) {
-      axios.get("/movies").then((aResponse) => {
-        console.log("response in /movies", aResponse);
-        commit("storeMovies", aResponse.data);
+      axios.get("/pictures").then((aResponse) => {
+        console.log("response in /pictures", aResponse);
+        commit("storePictures", aResponse.data[0]);
       });
     },
     logout({ commit, state }) {
       axios
-        .post("/contacts/logout", null, {
+        .post("/person/logout", null, {
           headers: { Authorization: `Bearer ${state.token}` },
         })
         .then(() => {
@@ -59,7 +59,7 @@ export default createStore({
       }
 
       axios
-        .get("/contacts/me", {
+        .get("/comments/me", {
           headers: {
             Authorization: `Bearer ${token}`,
           },

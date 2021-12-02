@@ -3,7 +3,7 @@
   <div class="container-fluid">
     <div class="row-justify-contnet-center">
       <div class="col-md-10 col-lg-7">
-        <router-view/>
+        <router-view />
       </div>
     </div>
   </div>
@@ -16,6 +16,11 @@ export default {
   name: "App",
   components: {
     "my-header": Header,
+  },
+
+  created() {
+    this.$store.dispatch("getPictures");
+    this.$store.dispatch("tryAutoLogin");
   },
 };
 </script>
